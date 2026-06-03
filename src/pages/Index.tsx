@@ -9,6 +9,7 @@ const NAV_ITEMS = [
   { id: 'developments', label: 'Разработки' },
   { id: 'history', label: 'История' },
   { id: 'news', label: 'Новости' },
+  { id: 'veterans', label: 'Ветераны' },
   { id: 'partners', label: 'Партнёры' },
   { id: 'production', label: 'Продукция' },
   { id: 'portal', label: 'Портал' },
@@ -438,6 +439,150 @@ export default function Index() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── AWARDS & VETERANS ── */}
+      <section id="veterans" className="py-24 reveal-section">
+        <div className="max-w-7xl mx-auto px-6">
+
+          {/* Награды */}
+          <div className="text-center mb-14">
+            <div className="text-[#00AEEF] text-[11px] font-medium tracking-widest uppercase mb-3">Признание государства</div>
+            <h2 className="font-oswald text-4xl lg:text-5xl font-bold text-white">Государственные награды</h2>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6 mb-20">
+            {/* Орден Ленина */}
+            <div className="relative rounded-xl overflow-hidden border border-[#FFD700]/20 bg-[#0D1118] group">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#FFD700]/5 to-transparent pointer-events-none" />
+              <div className="flex gap-0 flex-col md:flex-row">
+                <div className="md:w-48 flex-shrink-0">
+                  <img
+                    src="https://cdn.poehali.dev/projects/0833db77-0520-48be-9825-336c22693464/files/b95168b2-354c-4773-b6a5-a8d7159e3c1e.jpg"
+                    className="w-full h-48 md:h-full object-cover"
+                    alt="Орден Ленина"
+                  />
+                </div>
+                <div className="p-6 flex flex-col justify-center">
+                  <div className="inline-flex items-center gap-2 mb-3">
+                    <span className="text-[#FFD700] text-lg">★</span>
+                    <span className="text-[#FFD700] text-[10px] font-medium tracking-widest uppercase">Высшая награда СССР</span>
+                  </div>
+                  <h3 className="font-oswald text-2xl font-bold text-white mb-2">Орден Ленина</h3>
+                  <p className="text-[#E8EDF3]/60 text-sm leading-relaxed mb-4">
+                    Предприятие удостоено высшей государственной награды СССР — Ордена Ленина — за выдающийся вклад в укрепление обороноспособности страны и создание передовых систем радиоэлектронной борьбы.
+                  </p>
+                  <div className="flex items-center gap-2 text-[#FFD700]/70 text-xs">
+                    <Icon name="Award" size={13} />
+                    <span>Вручение: 1993 год · Москва, Кремль</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Благодарность Государственной Думы */}
+            <div className="relative rounded-xl overflow-hidden border border-[#00AEEF]/20 bg-[#0D1118] group">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00AEEF]/5 to-transparent pointer-events-none" />
+              <div className="p-7 h-full flex flex-col justify-between">
+                <div>
+                  <div className="inline-flex items-center gap-2 mb-4">
+                    <div className="w-8 h-8 rounded bg-[#00AEEF]/15 border border-[#00AEEF]/30 flex items-center justify-center">
+                      <Icon name="Landmark" size={15} className="text-[#00AEEF]" />
+                    </div>
+                    <span className="text-[#00AEEF] text-[10px] font-medium tracking-widest uppercase">Государственная Дума РФ</span>
+                  </div>
+                  <h3 className="font-oswald text-2xl font-bold text-white mb-3">Благодарность<br />Государственной Думы</h3>
+                  <p className="text-[#E8EDF3]/60 text-sm leading-relaxed">
+                    Коллектив института отмечен официальной благодарностью Государственной Думы Федерального Собрания Российской Федерации за многолетний вклад в развитие отечественной радиоэлектронной промышленности и обеспечение обороноспособности государства.
+                  </p>
+                </div>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {['Национальная безопасность', 'Оборонная промышленность', 'Радиоэлектроника'].map(t => (
+                    <span key={t} className="text-[10px] text-[#00AEEF] bg-[#00AEEF]/8 border border-[#00AEEF]/20 rounded px-2 py-1">{t}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Своих не бросаем */}
+          <div className="relative rounded-2xl overflow-hidden mb-6">
+            <img
+              src="https://cdn.poehali.dev/projects/0833db77-0520-48be-9825-336c22693464/files/3eb00f08-fe4f-46ba-8183-dc79376fdce3.jpg"
+              className="w-full h-80 object-cover object-top"
+              alt="Своих не бросаем"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#071827]/97 via-[#071827]/75 to-[#071827]/30" />
+            <div className="absolute inset-0 flex items-center">
+              <div className="px-10 max-w-2xl">
+                <div className="inline-flex items-center gap-2 bg-[#C0392B]/15 border border-[#C0392B]/40 rounded-full px-4 py-1.5 mb-5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#C0392B] animate-pulse" />
+                  <span className="text-[#FF6B6B] text-[10px] font-medium tracking-widest uppercase">Патриотический проект</span>
+                </div>
+                <h3 className="font-oswald text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                  «Своих<br />не бросаем»
+                </h3>
+                <p className="text-[#E8EDF3]/70 text-sm leading-relaxed mb-6 max-w-lg">
+                  Совет ветеранов ЦНИРТИ реализует программу поддержки участников специальной военной операции, ветеранов предприятия и их семей. Мы помним и чтим каждого, кто отдал годы жизни служению Родине и нашему институту.
+                </p>
+                <div className="flex flex-wrap gap-4">
+                  {[
+                    { icon: 'Heart', label: 'Поддержка ветеранов СВО' },
+                    { icon: 'Users', label: 'Помощь семьям' },
+                    { icon: 'Star', label: 'Сохранение памяти' },
+                  ].map((i, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-[#E8EDF3]/80 text-xs">
+                      <Icon name={i.icon} size={13} className="text-[#FF6B6B]" />
+                      <span>{i.label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Совет ветеранов — карточки */}
+          <div className="grid md:grid-cols-3 gap-4">
+            {[
+              {
+                icon: 'Medal',
+                title: 'Совет ветеранов',
+                desc: 'Объединяет ветеранов предприятия, организует встречи, памятные мероприятия и сохраняет историческую память о достижениях ЦНИРТИ.',
+                color: '#FFD700',
+                action: 'Присоединиться',
+              },
+              {
+                icon: 'HeartHandshake',
+                title: 'Шефская помощь',
+                desc: 'Материальная и моральная поддержка семей сотрудников, участвующих в СВО. Горячая линия работает круглосуточно.',
+                color: '#FF6B6B',
+                action: 'Обратиться за помощью',
+              },
+              {
+                icon: 'BookOpen',
+                title: 'Книга памяти',
+                desc: 'Живая летопись предприятия — биографии, достижения и воспоминания ветеранов, передающих опыт молодым специалистам.',
+                color: '#00AEEF',
+                action: 'Читать книгу',
+              },
+            ].map((c, i) => (
+              <div key={i} className="tech-card bg-[#0D1118] rounded-xl p-6 cursor-pointer group"
+                style={{ borderColor: `${c.color}18` }}>
+                <div className="w-11 h-11 rounded-lg mb-4 flex items-center justify-center"
+                  style={{ background: `${c.color}12`, border: `1px solid ${c.color}30` }}>
+                  <Icon name={c.icon} size={20} style={{ color: c.color }} />
+                </div>
+                <h4 className="font-oswald text-lg font-bold text-white mb-2 group-hover:text-[#00AEEF] transition-colors">{c.title}</h4>
+                <p className="text-[#E8EDF3]/55 text-sm leading-relaxed mb-4">{c.desc}</p>
+                <button className="text-xs font-medium flex items-center gap-1 transition-colors"
+                  style={{ color: c.color }}>
+                  {c.action} <Icon name="ArrowRight" size={11} />
+                </button>
+              </div>
+            ))}
+          </div>
+
         </div>
       </section>
 
