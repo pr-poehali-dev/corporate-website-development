@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
 import Icon from '@/components/ui/icon';
-import RadarCanvas from '@/components/RadarCanvas';
 
 const NAV_ITEMS = [
   { id: 'home', label: 'Главная' },
@@ -192,14 +191,15 @@ export default function Index() {
       <section id="home" className="relative min-h-screen flex items-center overflow-hidden radar-grid scan-overlay pt-16">
         <div className="absolute inset-0 bg-gradient-to-br from-[#071827] via-[#071827]/97 to-[#0D1118]" />
         {/* Satellite background */}
-        <div className="absolute right-0 top-0 bottom-0 w-1/2 lg:w-[55%] pointer-events-none">
+        <div className="absolute right-0 top-0 bottom-0 w-1/2 lg:w-[58%] pointer-events-none">
           <img
             src="https://cdn.poehali.dev/projects/0833db77-0520-48be-9825-336c22693464/files/2eb69c13-0035-42a4-b089-5530d3f500ba.jpg"
-            className="w-full h-full object-cover object-left opacity-30"
+            className="w-full h-full object-cover object-center opacity-55"
+            style={{ animation: 'satellite-float 8s ease-in-out infinite' }}
             alt=""
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#071827] via-[#071827]/60 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#071827]/80 via-transparent to-[#071827]/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071827] via-[#071827]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071827]/60 via-transparent to-[#071827]/20" />
         </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_50%,rgba(0,174,239,0.07)_0%,transparent_65%)]" />
 
@@ -245,17 +245,7 @@ export default function Index() {
             </div>
           </div>
 
-          <div className="hidden lg:flex justify-center items-center">
-            <div className="relative w-[440px] h-[440px]">
-              <div className="absolute inset-0 rounded-full border border-[#00AEEF]/15" />
-              <div className="absolute inset-4 rounded-full border border-[#00AEEF]/8" />
-              <RadarCanvas />
-              <div className="absolute bottom-10 left-1/2 -translate-x-1/2 bg-[#0D1118]/90 border border-[#00AEEF]/25 rounded px-5 py-2.5 text-center backdrop-blur-sm">
-                <div className="text-[#00D2C8] text-xs font-mono tracking-widest font-medium">● SYSTEM ACTIVE</div>
-                <div className="text-[#E8EDF3]/35 text-[10px] font-mono mt-0.5">FREQ: 9.3–9.6 GHz · MODE: SCAN</div>
-              </div>
-            </div>
-          </div>
+          <div className="hidden lg:block" />
         </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 opacity-40">

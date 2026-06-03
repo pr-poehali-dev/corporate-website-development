@@ -189,6 +189,19 @@
   color: #00aeef;
 }
 
+@keyframes satellite-float {
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+  33% {
+    transform: translateY(-18px) scale(1.015);
+  }
+  66% {
+    transform: translateY(8px) scale(0.99);
+  }
+}
+
 .timeline-line {
   position: relative;
   padding-left: 2rem;
