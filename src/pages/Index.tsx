@@ -191,6 +191,16 @@ export default function Index() {
       {/* ── HERO ── */}
       <section id="home" className="relative min-h-screen flex items-center overflow-hidden radar-grid scan-overlay pt-16">
         <div className="absolute inset-0 bg-gradient-to-br from-[#071827] via-[#071827]/97 to-[#0D1118]" />
+        {/* Satellite background */}
+        <div className="absolute right-0 top-0 bottom-0 w-1/2 lg:w-[55%] pointer-events-none">
+          <img
+            src="https://cdn.poehali.dev/projects/0833db77-0520-48be-9825-336c22693464/files/2eb69c13-0035-42a4-b089-5530d3f500ba.jpg"
+            className="w-full h-full object-cover object-left opacity-30"
+            alt=""
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071827] via-[#071827]/60 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071827]/80 via-transparent to-[#071827]/40" />
+        </div>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_50%,rgba(0,174,239,0.07)_0%,transparent_65%)]" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-2 gap-12 items-center py-20">
