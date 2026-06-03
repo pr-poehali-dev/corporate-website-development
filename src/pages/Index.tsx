@@ -12,7 +12,6 @@ const NAV_ITEMS = [
   { id: 'veterans', label: 'Ветераны' },
   { id: 'partners', label: 'Партнёры' },
   { id: 'production', label: 'Продукция' },
-  { id: 'portal', label: 'Портал' },
 ];
 
 const DIRECTIONS = [
@@ -58,38 +57,6 @@ const PARTNERS = [
   { name: 'Роскосмос', role: 'Космические программы', icon: 'Satellite' },
   { name: 'РТИ Системы', role: 'Радиолокационные системы', icon: 'Radar' },
   { name: 'МИРЭА — РТУ', role: 'Подготовка кадров', icon: 'GraduationCap' },
-];
-
-const PORTAL_SECTIONS = [
-  { icon: 'Building2', label: 'Предприятие' },
-  { icon: 'CheckSquare', label: 'Система менеджмента качества' },
-  { icon: 'FileText', label: 'Нормативные акты' },
-  { icon: 'Shield', label: 'Антикоррупционная политика' },
-  { icon: 'ShoppingCart', label: 'Закупочная деятельность' },
-  { icon: 'Award', label: 'Выставочная деятельность' },
-  { icon: 'BookOpen', label: 'Науч.-техн. библиотека' },
-  { icon: 'Users', label: 'Профсоюз' },
-  { icon: 'Heart', label: 'Совет ветеранов' },
-  { icon: 'Star', label: 'Совет молодых специалистов' },
-  { icon: 'Phone', label: 'Контакты' },
-];
-
-const DOCS = [
-  { name: 'Устав АО «ЦНИРТИ»', type: 'PDF', date: '2024', size: '2.1 МБ', icon: 'FileText' },
-  { name: 'Политика в области качества', type: 'PDF', date: '2024', size: '1.4 МБ', icon: 'CheckSquare' },
-  { name: 'Кодекс корпоративного поведения', type: 'PDF', date: '2023', size: '0.9 МБ', icon: 'Shield' },
-  { name: 'Положение об антикоррупционной политике', type: 'PDF', date: '2024', size: '1.2 МБ', icon: 'FileCheck' },
-  { name: 'Коллективный договор 2024–2026', type: 'PDF', date: '2024', size: '3.5 МБ', icon: 'Users' },
-  { name: 'Отчёт о научно-технической деятельности', type: 'PDF', date: '2024', size: '8.7 МБ', icon: 'BarChart2' },
-];
-
-const LIBRARY_ITEMS = [
-  { title: 'Вопросы радиоэлектроники', type: 'Журнал', year: '2025', issues: 12 },
-  { title: 'Радиолокация и радионавигация', type: 'Сборник', year: '2024', issues: 4 },
-  { title: 'Системы РЭБ: теория и практика', type: 'Монография', year: '2023', issues: 1 },
-  { title: 'Труды ЦНИРТИ', type: 'Сборник', year: '2024', issues: 2 },
-  { title: 'Космические системы разведки', type: 'Монография', year: '2022', issues: 1 },
-  { title: 'Вестник предприятия', type: 'Газета', year: '2025', issues: 24 },
 ];
 
 function useScrollReveal() {
@@ -143,9 +110,6 @@ function StatCard({ value, label, suffix = '' }: { value: number; label: string;
 export default function Index() {
   const [activeSection, setActiveSection] = useState('home');
   const [slideIndex, setSlideIndex] = useState(0);
-  const [portalTab, setPortalTab] = useState('dashboard');
-  const [portalNav, setPortalNav] = useState('Предприятие');
-  const [docSearch, setDocSearch] = useState('');
   const [mobileMenu, setMobileMenu] = useState(false);
 
   useScrollReveal();
@@ -178,8 +142,6 @@ export default function Index() {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setMobileMenu(false);
   };
-
-  const filteredDocs = DOCS.filter(d => d.name.toLowerCase().includes(docSearch.toLowerCase()));
 
   return (
     <div className="min-h-screen bg-[#071827] text-[#E8EDF3] font-golos">
@@ -623,235 +585,6 @@ export default function Index() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── INTERNAL PORTAL ── */}
-      <section id="portal" className="py-24 reveal-section">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <div className="text-[#00AEEF] text-[11px] font-medium tracking-widest uppercase mb-3">Для сотрудников</div>
-            <h2 className="font-oswald text-4xl lg:text-5xl font-bold text-white mb-3">Корпоративный портал</h2>
-            <p className="text-[#E8EDF3]/50 text-sm">Внутренний ресурс предприятия — документы, проекты, библиотека</p>
-          </div>
-
-          <div className="bg-[#0D1118] border border-[#23364D]/60 rounded-xl overflow-hidden min-h-[680px] flex flex-col">
-            {/* Portal header */}
-            <div className="bg-[#071827] border-b border-[#23364D]/60 px-5 py-3 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-6 h-6 rounded bg-gradient-to-br from-[#00AEEF] to-[#00D2C8] flex items-center justify-center">
-                  <Icon name="Radar" size={12} className="text-white" />
-                </div>
-                <span className="font-oswald text-sm font-semibold text-white tracking-wider">ИНТРАНЕТ ЦНИРТИ</span>
-                <div className="w-1.5 h-1.5 rounded-full bg-[#00D2C8] animate-pulse ml-1" />
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="hidden md:flex items-center gap-2 bg-[#23364D]/40 border border-[#23364D] rounded px-3 py-1.5">
-                  <Icon name="Search" size={12} className="text-[#E8EDF3]/35" />
-                  <input className="bg-transparent text-[#E8EDF3] text-xs outline-none w-32 placeholder:text-[#E8EDF3]/25" placeholder="Поиск..." />
-                </div>
-                <div className="w-7 h-7 rounded-full bg-[#23364D] flex items-center justify-center relative cursor-pointer">
-                  <Icon name="Bell" size={13} className="text-[#E8EDF3]/60" />
-                  <div className="absolute -top-0.5 -right-0.5 w-2 h-2 rounded-full bg-[#00AEEF]" />
-                </div>
-                <div className="flex items-center gap-2 cursor-pointer">
-                  <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#00AEEF] to-[#00D2C8] flex items-center justify-center">
-                    <Icon name="User" size={12} className="text-white" />
-                  </div>
-                  <span className="hidden md:block text-xs text-[#E8EDF3]/60">Иванов И.И.</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex flex-1">
-              {/* Sidebar */}
-              <div className="w-52 border-r border-[#23364D]/50 bg-[#071827]/40 flex-shrink-0 hidden md:block py-3">
-                {PORTAL_SECTIONS.map((s, i) => (
-                  <button key={i} onClick={() => setPortalNav(s.label)}
-                    className={`portal-nav-item w-full flex items-center gap-3 px-4 py-2.5 text-left text-xs ${portalNav === s.label ? 'active' : 'text-[#E8EDF3]/55'}`}>
-                    <Icon name={s.icon} size={13} className="flex-shrink-0" />
-                    <span className="leading-tight">{s.label}</span>
-                  </button>
-                ))}
-              </div>
-
-              {/* Main */}
-              <div className="flex-1 p-5 overflow-auto">
-                <div className="flex gap-1 mb-5 bg-[#071827] border border-[#23364D]/60 rounded-lg p-1 w-fit">
-                  {[
-                    { id: 'dashboard', label: 'Дашборд' },
-                    { id: 'documents', label: 'Документы' },
-                    { id: 'projects', label: 'Проекты' },
-                    { id: 'library', label: 'НТБ' },
-                  ].map(tab => (
-                    <button key={tab.id} onClick={() => setPortalTab(tab.id)}
-                      className={`px-4 py-1.5 rounded text-xs font-medium transition-all ${portalTab === tab.id ? 'bg-[#00AEEF] text-white' : 'text-[#E8EDF3]/45 hover:text-[#E8EDF3]'}`}>
-                      {tab.label}
-                    </button>
-                  ))}
-                </div>
-
-                {/* DASHBOARD */}
-                {portalTab === 'dashboard' && (
-                  <div>
-                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-5">
-                      {[
-                        { icon: 'CheckSquare', label: 'Мои задачи', val: '12', color: '#00AEEF', sub: '3 просроченных' },
-                        { icon: 'FileText', label: 'Документооборот', val: '47', color: '#00D2C8', sub: 'На согласовании' },
-                        { icon: 'Users', label: 'Совещания', val: '2', color: '#00AEEF', sub: 'Сегодня' },
-                        { icon: 'Briefcase', label: 'Проекты', val: '8', color: '#00D2C8', sub: 'В работе' },
-                      ].map((c, i) => (
-                        <div key={i} className="bg-[#071827] border border-[#23364D]/60 rounded-lg p-4 cursor-pointer hover:border-[#00AEEF]/35 transition-colors">
-                          <div className="flex items-center justify-between mb-3">
-                            <Icon name={c.icon} size={15} style={{ color: c.color }} />
-                            <div className="font-oswald text-2xl font-bold" style={{ color: c.color }}>{c.val}</div>
-                          </div>
-                          <div className="text-white text-xs font-medium">{c.label}</div>
-                          <div className="text-[#E8EDF3]/35 text-[10px] mt-0.5">{c.sub}</div>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="grid lg:grid-cols-2 gap-4">
-                      <div className="bg-[#071827] border border-[#23364D]/60 rounded-lg p-5">
-                        <div className="flex items-center gap-2 mb-4">
-                          <Icon name="Megaphone" size={14} className="text-[#00AEEF]" />
-                          <span className="font-oswald text-sm font-semibold text-white tracking-wide">Объявления</span>
-                        </div>
-                        <div className="space-y-3">
-                          {[
-                            { title: 'Патриотическая акция «Своих не бросаем»', date: '03 июн', tag: 'Важно' },
-                            { title: 'Выставка «Армия-2025» — анонс стенда', date: '01 июн', tag: 'Выставка' },
-                            { title: 'Конкурс молодых учёных — приём заявок', date: '28 май', tag: 'Конкурс' },
-                            { title: 'Корпоративная газета «Вестник» №11', date: '25 май', tag: 'Газета' },
-                          ].map((a, i) => (
-                            <div key={i} className="flex items-start justify-between gap-3 pb-3 border-b border-[#23364D]/35 last:border-0 last:pb-0 cursor-pointer group">
-                              <div className="text-xs text-[#E8EDF3]/70 group-hover:text-[#00AEEF] transition-colors leading-snug">{a.title}</div>
-                              <div className="flex-shrink-0 text-right">
-                                <div className="text-[10px] text-[#00D2C8] bg-[#00D2C8]/10 rounded px-1.5 py-0.5 mb-1">{a.tag}</div>
-                                <div className="text-[10px] text-[#E8EDF3]/35">{a.date}</div>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="bg-[#071827] border border-[#23364D]/60 rounded-lg p-5">
-                        <div className="flex items-center gap-2 mb-4">
-                          <Icon name="BarChart2" size={14} className="text-[#00AEEF]" />
-                          <span className="font-oswald text-sm font-semibold text-white tracking-wide">Показатели отдела</span>
-                        </div>
-                        <div className="space-y-4">
-                          {[
-                            { label: 'Выполнение плана', val: 87 },
-                            { label: 'Задачи в срок', val: 74 },
-                            { label: 'Документооборот', val: 92 },
-                            { label: 'Участие в проектах', val: 65 },
-                          ].map((s, i) => (
-                            <div key={i}>
-                              <div className="flex justify-between text-xs mb-1.5">
-                                <span className="text-[#E8EDF3]/60">{s.label}</span>
-                                <span className="text-[#00AEEF] font-medium">{s.val}%</span>
-                              </div>
-                              <div className="h-1 bg-[#23364D] rounded-full overflow-hidden">
-                                <div className="h-full bg-gradient-to-r from-[#00AEEF] to-[#00D2C8] rounded-full"
-                                  style={{ width: `${s.val}%` }} />
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {/* DOCUMENTS */}
-                {portalTab === 'documents' && (
-                  <div>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="flex-1 flex items-center gap-2 bg-[#071827] border border-[#23364D]/60 rounded px-3 py-2">
-                        <Icon name="Search" size={13} className="text-[#E8EDF3]/35" />
-                        <input value={docSearch} onChange={e => setDocSearch(e.target.value)}
-                          className="bg-transparent text-[#E8EDF3] text-xs outline-none flex-1 placeholder:text-[#E8EDF3]/25"
-                          placeholder="Поиск документов..." />
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      {filteredDocs.map((d, i) => (
-                        <div key={i} className="flex items-center gap-4 bg-[#071827] border border-[#23364D]/60 rounded-lg px-4 py-3 cursor-pointer hover:border-[#00AEEF]/35 transition-colors group">
-                          <div className="w-8 h-8 rounded bg-[#00AEEF]/10 flex items-center justify-center flex-shrink-0">
-                            <Icon name={d.icon} size={13} className="text-[#00AEEF]" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="text-sm text-[#E8EDF3] group-hover:text-[#00AEEF] transition-colors truncate">{d.name}</div>
-                            <div className="text-[10px] text-[#E8EDF3]/35 mt-0.5">{d.type} · {d.date} · {d.size}</div>
-                          </div>
-                          <Icon name="Download" size={13} className="text-[#E8EDF3]/35 group-hover:text-[#00AEEF] transition-colors flex-shrink-0" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* PROJECTS */}
-                {portalTab === 'projects' && (
-                  <div className="grid md:grid-cols-2 gap-4">
-                    {[
-                      { name: 'Комплекс РЭБ нового поколения', deadline: '31 дек 2025', progress: 68, stage: 'ОКР', members: 14 },
-                      { name: 'Бортовая аппаратура КА «Лотос-С2»', deadline: '30 июн 2025', progress: 92, stage: 'Испытания', members: 9 },
-                      { name: 'НИОКР по теме «Полюс-М»', deadline: '15 авг 2025', progress: 45, stage: 'НИР', members: 6 },
-                      { name: 'Модернизация комплекса «Хибины-У»', deadline: '20 окт 2025', progress: 30, stage: 'Проект.', members: 11 },
-                    ].map((p, i) => (
-                      <div key={i} className="bg-[#071827] border border-[#23364D]/60 rounded-lg p-5 cursor-pointer hover:border-[#00AEEF]/35 transition-colors group">
-                        <div className="flex items-start justify-between mb-3">
-                          <h4 className="font-semibold text-white text-sm leading-snug flex-1 pr-3 group-hover:text-[#00AEEF] transition-colors">{p.name}</h4>
-                          <span className="text-[10px] text-[#00D2C8] bg-[#00D2C8]/10 border border-[#00D2C8]/20 rounded px-2 py-0.5 flex-shrink-0">{p.stage}</span>
-                        </div>
-                        <div className="flex items-center gap-4 text-[11px] text-[#E8EDF3]/45 mb-4">
-                          <span className="flex items-center gap-1"><Icon name="Calendar" size={10} />{p.deadline}</span>
-                          <span className="flex items-center gap-1"><Icon name="Users" size={10} />{p.members} чел.</span>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <div className="flex-1 h-1 bg-[#23364D] rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-[#00AEEF] to-[#00D2C8] rounded-full"
-                              style={{ width: `${p.progress}%` }} />
-                          </div>
-                          <span className="text-[#00AEEF] text-xs font-medium">{p.progress}%</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* LIBRARY */}
-                {portalTab === 'library' && (
-                  <div>
-                    <div className="flex items-center gap-3 p-4 bg-[#071827] border border-[#00AEEF]/20 rounded-lg mb-5">
-                      <Icon name="BookOpen" size={16} className="text-[#00AEEF]" />
-                      <div>
-                        <div className="text-sm font-medium text-white">Научно-техническая библиотека ЦНИРТИ</div>
-                        <div className="text-xs text-[#E8EDF3]/45 mt-0.5">Доступ к публикациям, монографиям и исследованиям предприятия</div>
-                      </div>
-                    </div>
-                    <div className="grid md:grid-cols-2 gap-3">
-                      {LIBRARY_ITEMS.map((l, i) => (
-                        <div key={i} className="tech-card bg-[#071827] rounded-lg p-4 flex items-center gap-4 cursor-pointer group">
-                          <div className="w-10 h-10 rounded bg-[#00AEEF]/10 border border-[#00AEEF]/20 flex items-center justify-center flex-shrink-0">
-                            <Icon name="BookMarked" size={15} className="text-[#00AEEF]" />
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="text-sm font-medium text-white group-hover:text-[#00AEEF] transition-colors truncate">{l.title}</div>
-                            <div className="text-[10px] text-[#E8EDF3]/45 mt-0.5">{l.type} · {l.year} · {l.issues} вып.</div>
-                          </div>
-                          <Icon name="ExternalLink" size={12} className="text-[#E8EDF3]/25 group-hover:text-[#00AEEF] transition-colors flex-shrink-0" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
           </div>
         </div>
       </section>
