@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { id: 'history', label: 'История' },
   { id: 'news', label: 'Новости' },
   { id: 'partners', label: 'Партнёры' },
+  { id: 'production', label: 'Продукция' },
   { id: 'portal', label: 'Портал' },
 ];
 
@@ -707,6 +708,161 @@ export default function Index() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ── PRODUCTION & PRODUCT SHOWCASE ── */}
+      <section id="production" className="py-24 bg-[#0D1118] reveal-section">
+        <div className="max-w-7xl mx-auto px-6">
+
+          {/* Header */}
+          <div className="text-center mb-14">
+            <div className="text-[#00AEEF] text-[11px] font-medium tracking-widest uppercase mb-3">Производство и продукция</div>
+            <h2 className="font-oswald text-4xl lg:text-5xl font-bold text-white mb-4">Наши возможности</h2>
+            <p className="text-[#E8EDF3]/50 text-sm max-w-2xl mx-auto">
+              Полный цикл разработки и производства: от научных исследований до серийного выпуска. Современные цеха, испытательные комплексы и уникальные технологии.
+            </p>
+          </div>
+
+          {/* Featured product promo — full width */}
+          <div className="relative rounded-xl overflow-hidden mb-6 group cursor-pointer">
+            <img
+              src="https://cdn.poehali.dev/projects/0833db77-0520-48be-9825-336c22693464/files/25b235fd-67f6-4641-a1a6-1fa322f4f715.jpg"
+              className="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700"
+              alt="Радиолокационные системы"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#071827]/95 via-[#071827]/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#071827]/70 to-transparent" />
+            {/* Scan line on hover */}
+            <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-[#00AEEF] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="absolute inset-0 flex items-center">
+              <div className="px-10 max-w-xl">
+                <div className="inline-flex items-center gap-2 bg-[#00AEEF]/15 border border-[#00AEEF]/30 rounded-full px-3 py-1 mb-4">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#00AEEF] animate-pulse" />
+                  <span className="text-[#00AEEF] text-[10px] tracking-widest uppercase font-medium">Флагманская разработка</span>
+                </div>
+                <h3 className="font-oswald text-3xl lg:text-4xl font-bold text-white mb-3 leading-tight">
+                  Радиолокационные комплексы<br />
+                  <span className="text-[#00AEEF]">нового поколения</span>
+                </h3>
+                <p className="text-[#E8EDF3]/70 text-sm leading-relaxed mb-5">
+                  Многофункциональные РЛС с фазированной антенной решёткой для обнаружения, сопровождения и классификации воздушных и космических объектов на дальних дистанциях.
+                </p>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {['Дальность 400+ км', 'Фазированная АР', 'Цифровая обработка', 'Многоцелевое сопровождение'].map(f => (
+                    <span key={f} className="text-[10px] text-[#00D2C8] border border-[#00D2C8]/25 bg-[#00D2C8]/8 rounded px-2 py-0.5">{f}</span>
+                  ))}
+                </div>
+                <button className="bg-[#00AEEF] hover:bg-[#0099d4] text-white font-medium px-6 py-2.5 rounded text-sm tracking-wide transition-all glow-blue">
+                  Запросить коммерческое предложение
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* 2-col product cards */}
+          <div className="grid lg:grid-cols-2 gap-6 mb-6">
+            {/* Card 1 */}
+            <div className="relative rounded-xl overflow-hidden group cursor-pointer">
+              <img
+                src="https://cdn.poehali.dev/projects/0833db77-0520-48be-9825-336c22693464/files/d2674a40-3fb2-4874-92ff-6275578eccb7.jpg"
+                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700"
+                alt="Комплексы РЭБ"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071827] via-[#071827]/50 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="text-[#00D2C8] text-[10px] tracking-widest uppercase mb-1">Авиационное применение</div>
+                <h3 className="font-oswald text-xl font-bold text-white mb-2">Комплексы РЭБ «Хибины»</h3>
+                <p className="text-[#E8EDF3]/60 text-xs leading-relaxed mb-4">
+                  Бортовые системы индивидуальной защиты самолётов от ракет с радиолокационным самонаведением. Сертифицированы для Су-34, Су-35, Су-30СМ.
+                </p>
+                <div className="flex items-center justify-between">
+                  <div className="flex gap-2">
+                    {['Су-34', 'Су-35', 'Су-30СМ'].map(p => (
+                      <span key={p} className="text-[10px] text-[#00AEEF] bg-[#00AEEF]/10 border border-[#00AEEF]/20 rounded px-2 py-0.5">{p}</span>
+                    ))}
+                  </div>
+                  <button className="text-[#00AEEF] text-xs hover:underline flex items-center gap-1">
+                    Подробнее <Icon name="ArrowRight" size={12} />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="relative rounded-xl overflow-hidden group cursor-pointer">
+              <img
+                src="https://cdn.poehali.dev/projects/0833db77-0520-48be-9825-336c22693464/files/2686a37a-2acd-44d2-b86d-8489e050ae23.jpg"
+                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700"
+                alt="Космические системы"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071827] via-[#071827]/50 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="text-[#00D2C8] text-[10px] tracking-widest uppercase mb-1">Космическое применение</div>
+                <h3 className="font-oswald text-xl font-bold text-white mb-2">Бортовая аппаратура КА</h3>
+                <p className="text-[#E8EDF3]/60 text-xs leading-relaxed mb-4">
+                  Радиотехническая и радиолокационная аппаратура для космических аппаратов серий «Лотос», «Пион-НКС». Диапазон частот 0.1–40 ГГц.
+                </p>
+                <div className="flex items-center justify-between">
+                  <div className="flex gap-2">
+                    {['«Лотос»', '«Пион-НКС»'].map(p => (
+                      <span key={p} className="text-[10px] text-[#00AEEF] bg-[#00AEEF]/10 border border-[#00AEEF]/20 rounded px-2 py-0.5">{p}</span>
+                    ))}
+                  </div>
+                  <button className="text-[#00AEEF] text-xs hover:underline flex items-center gap-1">
+                    Подробнее <Icon name="ArrowRight" size={12} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* PRODUCTION GALLERY — цеха */}
+          <div className="mb-6">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-8 h-px bg-[#00AEEF]" />
+              <span className="font-oswald text-lg font-semibold text-white tracking-wide">Производственные мощности</span>
+              <div className="flex-1 h-px bg-[#23364D]" />
+            </div>
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+              {[
+                { img: 'https://cdn.poehali.dev/projects/0833db77-0520-48be-9825-336c22693464/files/221e670a-98a2-4313-98cc-5a7b7a6815e7.jpg', label: 'Сборочный цех', sub: 'Прецизионная сборка' },
+                { img: 'https://cdn.poehali.dev/projects/0833db77-0520-48be-9825-336c22693464/files/7f793f9d-4f5f-4a82-a8e9-4e2477c0c01e.jpg', label: 'Испытательный комплекс', sub: 'Измерительное оборудование' },
+                { img: 'https://cdn.poehali.dev/projects/0833db77-0520-48be-9825-336c22693464/files/63cd6c27-0ea0-4daf-ab9d-8a9f413f0183.jpg', label: 'Испытания в космосе', sub: 'Орбитальные системы' },
+              ].map((g, i) => (
+                <div key={i} className="relative rounded-lg overflow-hidden group cursor-pointer aspect-video">
+                  <img src={g.img} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt={g.label} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#071827]/90 via-transparent to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-2 group-hover:translate-y-0 transition-transform">
+                    <div className="font-medium text-white text-xs">{g.label}</div>
+                    <div className="text-[#00AEEF] text-[10px] mt-0.5">{g.sub}</div>
+                  </div>
+                  {/* Corner bracket */}
+                  <div className="absolute top-2 left-2 w-3 h-3 border-t border-l border-[#00AEEF]/60 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-[#00AEEF]/60 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA strip */}
+          <div className="relative rounded-xl overflow-hidden bg-gradient-to-r from-[#071827] to-[#0D1118] border border-[#00AEEF]/20 p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="absolute inset-0 radar-grid opacity-40" />
+            <div className="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-[#00AEEF]/5 to-transparent" />
+            <div className="relative">
+              <h3 className="font-oswald text-2xl font-bold text-white mb-2">Заинтересованы в сотрудничестве?</h3>
+              <p className="text-[#E8EDF3]/55 text-sm">Направьте запрос — наши специалисты подготовят техническое предложение</p>
+            </div>
+            <div className="relative flex gap-3 flex-shrink-0">
+              <button className="bg-[#00AEEF] hover:bg-[#0099d4] text-white font-medium px-6 py-3 rounded text-sm tracking-wide transition-all glow-blue whitespace-nowrap">
+                Связаться с нами
+              </button>
+              <button className="border border-[#00AEEF]/35 hover:border-[#00AEEF] text-[#00AEEF] px-6 py-3 rounded text-sm transition-all whitespace-nowrap">
+                Каталог продукции
+              </button>
+            </div>
+          </div>
+
         </div>
       </section>
 
